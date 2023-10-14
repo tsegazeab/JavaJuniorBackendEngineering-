@@ -1,0 +1,127 @@
+1. Variables, Data Types, and Operators in Java:
+
+1.1 Variables:
+
+    Variables are used to store data in a program. They have a specific data type and can be assigned values.
+    Example:
+
+    
+
+    int age = 25;
+    double salary = 5000.50;
+    String name = "John Doe";
+    boolean isEmployed = true;
+
+1.2 Data Types:
+
+    Java has different data types, including int, double, char, boolean, etc.
+    Example:
+
+    
+
+    int age = 25;
+    double salary = 5000.50;
+    char grade = 'A';
+    boolean isEmployed = true;
+
+1.3 Operators:
+
+    Java provides various operators for performing operations on variables and values.
+    Example:
+
+    
+
+    int x = 5;
+    int y = 3;
+    int sum = x + y; // Addition operator
+    int difference = x - y; // Subtraction operator
+    int product = x * y; // Multiplication operator
+    double division = (double) x / y; // Division operator
+    boolean isGreater = x > y; // Comparison operator
+
+2. Control Structures:
+
+2.1 if statements:
+
+    The if statement allows you to execute a block of code if a certain condition is true.
+    Example:
+
+    
+
+    int age = 18;
+    if (age >= 18) {
+        System.out.println("You are eligible to vote.");
+    } else {
+        System.out.println("You are not eligible to vote.");
+    }
+
+2.2 Loops:
+
+    Loops are used to repeat a set of instructions until a specific condition is met.
+
+2.3 for loop:
+
+
+for (int i = 0; i < 5; i++) {
+    System.out.println("Iteration: " + i);
+}
+
+2.4 while loop:
+
+        
+
+        int count = 0;
+        while (count < 5) {
+            System.out.println("Count: " + count);
+            count++;
+        }
+
+2.5 switch statements:
+
+    The switch statement provides an alternative way to control the flow of execution based on different cases.
+    Example:
+
+    Copy
+
+    int day = 3;
+    switch (day) {
+        case 1:
+            System.out.println("Monday");
+            break;
+        case 2:
+            System.out.println("Tuesday");
+            break;
+        case 3:
+            System.out.println("Wednesday");
+            break;
+        default:
+            System.out.println("Invalid day");
+    }
+
+3. Arrays and Collections:
+
+3.1 Arrays:
+
+    Arrays allow you to store multiple values of the same data type in a single variable.
+    Example:
+
+    
+
+    int[] numbers = {1, 2, 3, 4, 5};
+    String[] names = {"John", "Jane", "Mike"};
+
+3.2 Collections:
+
+    Collections provide more flexibility in managing lists of data. ArrayList is a commonly used collection in Java.
+    Example:
+
+
+
+import java.util.ArrayList;
+
+ArrayList<Integer> numbers = new ArrayList<>();
+numbers.add(1);
+numbers.add(2);
+numbers.add(3);
+numbers.remove(2);
+int firstNumber = numbers.get(0); 
