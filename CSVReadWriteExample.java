@@ -9,32 +9,54 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 public class CSVReadWriteExample {
+
+    int accountNumber = 0;
+    String accountHolder = " ";
+    double balance = 0.0;
+
     public static void main(String[] args) {
         String inputFile = "accounts.csv";
         String outputFile = "output.csv";
+        CSVReadWriteExample cSVReadWriteExample=new CSVReadWriteExample();
+        // Reading from the CSV file
+        cSVReadWriteExample.readFromCSV(inputFile);
 
+        // Writing to the CSV file
+        //cSVReadWriteExample.writeToCSV(outputFile);
+    }
+
+    private void readFromCSV(String inputFile) {
         try {
-            // Reading from the CSV file using FileInputStream and BufferedReader
             FileInputStream fis = new FileInputStream(inputFile);
             BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
-
-            // Writing to the CSV file using FileOutputStream and BufferedWriter
-            FileOutputStream fos = new FileOutputStream(outputFile);
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fos));
 
             String line;
             while ((line = reader.readLine()) != null) {
                 // Process the line as needed
-                // In this example, we simply write the line as it is to the output file
-                writer.write(line);
-                writer.newLine();
+                String[] data = line.split(",");
+                accountNumber = Integer.parseInt(data[0]);
+                accountHolder = data[1];
+                balance = Double.parseDouble(data[2])-100.00;
+                writeToCSV("output.csv");
+                System.out.println(line);
             }
 
-            // Closing the FileInputStream, BufferedReader, FileOutputStream, and BufferedWriter
             reader.close();
-            writer.close();
+            System.out.println("CSV file read successfully.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-            System.out.println("CSV file read and write completed successfully.");
+    private  void writeToCSV(String outputFile) {
+        try {
+            FileOutputStream fos = new FileOutputStream(outputFile);
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fos));
+
+            writer.write(accountNumber+","+accountHolder+","+balance);             
+
+            writer.close();
+            System.out.println("CSV file write completed successfully.");
         } catch (IOException e) {
             e.printStackTrace();
         }
